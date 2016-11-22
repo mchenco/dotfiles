@@ -1,0 +1,173 @@
+\documentclass[9pt]{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[usenames]{color}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\leftmargin=0.25in
+\oddsidemargin=0.25in
+\textwidth=6.0in
+\topmargin=-0.5in
+\textheight=9.25in
+
+\raggedright
+{}
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+% DEFINITIONS FOR RESUME
+
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}
+}
+
+\newcommand{\lineover}{
+	\begin{changemargin}{-0.05in}{-0.05in}
+		\vspace*{-8pt}
+		\hrulefill \\
+		\vspace*{-2pt}
+	\end{changemargin}
+}
+
+\newcommand{\header}[1]{
+	\begin{changemargin}{-0.5in}{-0.5in}
+		\scshape{#1}\\
+  	\lineover
+	\end{changemargin}
+}
+
+\newcommand{\contact}[4]{
+	\begin{changemargin}{-0.5in}{-0.5in}
+		\begin{center}
+			{\Large \scshape {#1}}\\ \smallskip
+			{#2}\\ \smallskip 
+			{#3}\\ \smallskip
+			{#4}\smallskip
+		\end{center}
+	\end{changemargin}
+}
+
+\newenvironment{body} {
+	\vspace*{-16pt}
+	\begin{changemargin}{-0.25in}{-0.5in}
+  }	
+	{\end{changemargin}
+}	
+
+\newcommand{\school}[4]{
+	\textbf{#1} \hfill \emph{#2\\}
+	#3\\ 
+	#4\\
+}
+
+% END RESUME DEFINITIONS
+
+\begin{document}
+\thispagestyle{empty}
+\pagestyle{empty} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Name
+\contact{Michelle Chen}{(647) 832-9519 | mchen375@uwo.ca}{http://github.com/mchenco}
+
+%\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Education
+\header{Education}
+
+\begin{body}
+	\vspace{14pt}
+    \textbf{University of Western Ontario --- London, Ontario}{} \hfill \emph{Class of 2019} \\
+    \emph{Major in Computer Science} --- Dean's List \\
+    \emph{Conditional acceptance to Richard Ivey School of Business for HBA} --- entering in 2017\\
+    \medskip
+	\textbf{Havergal College --- Toronto, Ontario} \hfill \emph{2016} \\
+	\emph{Honour Roll with Distinction}, Average of 90+\%\\
+\end{body}
+
+\bigskip
+
+
+% Skills
+\header{Skills}
+\begin{body}
+    \vspace{14pt}
+    \textbf{Programming Languages:}{} Python, Java \\
+    \medskip
+    \textbf{Other Languages:}{} \LaTeX, Markdown, HTML, CSS \\
+    \medskip
+    \textbf{Tools:}{} vim, bash, git\\
+    \medskip
+    \textbf{Software:}{} Sublime, Eclipse, Adobe Photoshop, Lightroom, Illustrator, Final Cut Pro X\\
+\end{body}
+
+\bigskip
+
+\header{Related Courses}
+\begin{body}
+    \vspace{6pt}
+\begin{multicols}{2}
+    \textbf{Current Courses}
+    \item Data Structures and Algorithms
+    \item Discrete Structures for Computing
+    \item Software Tools and Systems Programming \\
+    \columnbreak
+    \textbf{Past Courses}
+    \item Computer Science Fundamentals I (Python)
+    \item Computer Science Fundamentals II (Java)
+\end{multicols}
+\end{body}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Experience
+\header{Projects}
+
+\begin{body}
+    \vspace{14pt}
+    
+    \textbf{Maze Solver}, \emph{Computer Science Fundamentals II} \hfill \emph{Java}\\
+    \begin{itemize} \itemsep -0pt  % reduce space between items
+        \item The program generates a maze composed of hexagon tiles given an input .txt file 
+        \item The algorithm uses an array stack to begin at the start tile, push the surrounding tiles onto the stack and find a path to the end tile 
+        \item Live maze traversal is displayed and animated through graphics 
+    \end{itemize}
+
+    \textbf{Binary Tree Processor}, \emph{Computer Science Fundamentals II} \hfill \emph{Java}\\
+    \begin{itemize} \itemsep -0pt  % reduce space between items
+        \item The program createss and populates a linked queue binary tree with data from a .txt file
+        \item Recursive algorithms perform tree traversal and calculate the height, width, number of nodes and density of each binary tree
+    \end{itemize}
+
+    \textbf{Perpetual Inventory System}, \emph{Computer Science Fundamentals I} \hfill \emph{Python}\\
+	\begin{itemize} \itemsep -0pt  % reduce space between items
+        \item Uses object-oriented programming to create an inventory system of Parts that tracks the name, price and quantity of the part
+        \item Given a build order for a 'Widget' via .txt file, the system must determine if there are enough parts to create the widget, and if so, the total price for the parts
+        \item The inventory is then updated perpetually depending on if widget build orders are processed
+
+	\end{itemize}
+
+    \textbf{Sentiment Analysis of Tweets}, \emph{Computer Science Fundamentals I} \hfill \emph{Python}\\
+	\begin{itemize} \itemsep -0pt  % reduce space between items
+        \item Given a .txt file of tweets and a .txt file of keywords with a 'happiness score', a sentiment analysis is performed and a happiness score for each tweet is calculated
+        \item The program utilizes the tweet's location data to compute which geographical region in Canada is the happiest based on time-zone borders
+        \item The graphics library is used to create a chart that visualizes the happiness score data of each region
+	\end{itemize}
+\end{body}
+
+\bigskip
+
+% \newpage{} % uncomment this line if you want to force a new page
+\header{Experience}
+\begin{body}
+    \vspace{14pt}
+    Women in Tech Society 2016 Co-President, Western Hack Team, Communitech Fall/Winter Campus Ambassador, HackWestern 2 Participant, HackWestern 3 Acceptance, HackPrinceton Fall 2016 Acceptance, Technica Acceptance
+\end{body}
+
+\end{document}

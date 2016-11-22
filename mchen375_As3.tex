@@ -1,0 +1,256 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,mathtools,listings}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Assignment 3}%replace X with the appropriate number
+\author{Michelle Chen --- 250845824\\ %replace with your name
+CS2214A: Discrete Structures for Computing} %if necessary, replace with your course title
+ 
+\maketitle
+ 
+\begin{exercise}{1} %You can use theorem, proposition, exercise, or reflection here.  Modify x.yz to be whatever number you are proving
+Prove that if n is an integer that is not a multiple of 4, then $n^2 \equiv 0$ (mod 4) or $n^2 ≡ 1$ (mod 4).
+\end{exercise}
+ 
+\begin{proof}[Proof by Cases]
+The premise is that n is not a multiple of 4 and the conclusion is that $n^2 \equiv 0$ mod 4 or $n^2 \equiv 1$ mod 4. Using proof by cases, we know that n must be {0,1,2,3} in modulo 4. We can assume that the premise is true, substitute each of the integers into the equality $n^2$ to directly test our conclusion in each case. \\
+
+\textbf{CASE 1: $n = 0$\\}
+0 is a multiple of 4, which means that it can be excluded from the proof since we are only looking for non-multiples of 4.
+
+\textbf{CASE 2: $n = 1$}
+\begin{align*}
+(1)^2 \equiv 1 \text{mod 4} \\
+\end{align*}
+Therefore, the conclusion that $n^2 ≡ 1$ (mod 4) when n is not a multiple of 4, since n = 1 is not a multiple of 4. 
+
+\textbf{CASE 3: $n = 2$}
+\begin{align*}
+(2)^2 \equiv 0 \text{mod 4} \\
+\end{align*}
+Therefore, the conclusion $n^2 \equiv 0$ mod 4 holds for n = 2, since 2 is not a multiple of 4.
+
+\textbf{CASE 4: $n = 3$}
+\begin{align*}
+(3)^2 \equiv 1 \text{mod 4} \\
+\end{align*}
+Therefore, the conclusion that $n^2 \equiv 1$ (mod 4) holds for n = 3, since 3 is not a multiple of 4.
+
+Using proof by cases, we tested all integers in modulo 4, \{0,1,2,3\}. In each case where n is not a multiple of 4, \{1,2,3\}, we substituted the integer for n and found that each equation was equivalent to 1 or 0 mod 4. Therefore, the conclusion holds that $n^2 \equiv 0$ (mod 4) or $n^2 \equiv 1$ (mod 4) when n is an integer that is not a multiple of 4.
+\end{proof}
+
+\pagebreak
+% --------------------------------------------------------------
+
+\begin{exercise}{2a}
+Use the Euclidean Algorithm to find $gcd(390, 72)$. 
+\end{exercise}
+
+To find the gcd, we use the Euclidean Algorithm:
+
+\begin{align*}
+390 &= 72 \times 5 + 30 \\
+72 &= 30 \times 2 + 12 \\
+30 &= 12 \times 2 + 6 \\
+12 &= 6 \times 2 \\
+\end{align*}
+
+Thus, the greatest common denominator of 390 and 72 is 6.
+
+
+\begin{exercise}{2b}
+Given that $gcd(662, 414) = 2$, use the algorithm described in class to write 2 as a linear combination of 662 and 414.
+\end{exercise}
+
+According to B\'ezout's Theorem, there exists integers s and t such that $gcd(a,b) = sa + tb$, thus $2 = s(662) + t(414)$.
+
+\begin{align*}
+662 &= 414 \times 1 + 248 \\
+414 &= 248 \times 1 + 166 \\
+248 &= 166 \times 1 + 82 \\
+166 &= 82 \times 2 + 2 \\
+82 &= 2 \times 41 + 0 \\
+\end{align*}
+
+By backward substitution, we get that:
+
+\begin{align*}
+2 &= 166 - (82 \times 2) \\
+2 &= 166 - ((248 - 166) \times 2) \\
+2 &= (166 \times 3) - (248 \times 2) \\
+2 &= ((414 - 248) \times 3) - ((662 - 414) \times 2) \\
+2 &= (414 \times 5) - (248 \times 3) - (662 \times 2) \\
+2 &= (414 \times 5) - ((662 - 414) \times 3) - (662 \times 2) \\
+2 &= (414 \times 8) - (662 \times 5) \\
+\end{align*}
+
+Therefore, the B\'ezout coefficients are 8 and 5. The number 2 can be written as a linear combination of 662 and 414 such that $2 = 5(662) + 8(414)$.
+
+\pagebreak
+% --------------------------------------------------------------
+
+\begin{exercise}{3a}
+Use the algorithms described in class to convert $(8091)_{10}$ to base 2 and convert $(100 1100 0011)_2$ to base 16.
+\end{exercise}
+
+\textbf{Converting $(8091)_{10}$ to base 2.\\}
+
+To convert decimal to binary, we repeatedly divide the number by 2 and look at the remainders to determine the binary result.
+
+\begin{align*}
+8091 \div 2 &= 4045 + 1 \\
+4045 \div 2 &= 2022 + 1 \\
+2022 \div 2 &= 1011 + 0 \\
+1011 \div 2 &= 505 + 1 \\
+505 \div 2 &= 252 + 1 \\
+252 \div 2 &= 126 + 0 \\
+126 \div 2 &= 63 + 0 \\
+62 \div 2 &= 31 + 1 \\
+31 \div 2 &= 15 + 1 \\
+15 \div 2 &= 7 + 1 \\
+7 \div 2 &= 3 + 1 \\
+3 \div 2 &= 1 + 1 \\
+1 \div 2 &= 0 + 1 \\
+\end{align*}
+
+Looking at all the remainders, the binary result is $(1101100111111)_2$.
+
+\textbf{Converting $(100 1100 0011)_2$ to base 16.\\}
+We first group the digits into groups of 4, thus the number is 0100 1100 0011.
+
+\begin{align*}
+0100 &= (0\times2^3) + (1\times2^2) + (0\times2^1) + (0\times2^0) \\
+&= 4 \\
+1100 &= (1 \times 2^3) + (1 \times 2^2)+ (0\times2^1)+ (0\times2^0) \\
+&= 8+4 \\
+&= 12 \\
+&= C \\
+0011 &= (0 \times 2^3) + (0 \times 2^2) + (1\times2^1) + (1\times2^0) \\
+&= 3 \\
+\end{align*}
+
+Thus, the number $(100 1100 0011)_2$ is represented as $(4C3)_{16}$.
+
+\pagebreak
+
+\begin{exercise}{3b}
+Use the algorithms described in class to find the sum and product of the
+base 2 numbers $(110 1011 1100)_2$ and $(111 0111 0111)_2$. Express your answers as numbers in base 2.
+\end{exercise}
+
+\textbf{Sum\\}
+The algorithm given in class is used to perform binary addition is basically adding each matching digit modulo 2 and carrying the remainders to the next digit.
+
+For example, the last digit of the 2 numbers are 0 and 1 respectively. the addition of $0 + 1 = 1$, so the last digit of the binary sum would be 1. We repeat this with each digit of the numbers, taking care to carry the remainders to the next digit after performing modulo 2 on the sum.  
+
+Using this algorithm, the addition of $(110 1011 1100)_2$ and $(111 0111 0111)_2$ results in $(0111000110011)_2$. \\
+
+\textbf{Product\\}
+The algorithm given in class is used to find the product of two binary numbers by multiplying the last digit of the second number by every digit in the first number. Once we iterate through the first number once, we use multiply the second-last digit of the second number by every digit in the first number, making sure we add an extra 0 at the end of the product to shift it the correct amount of places. After the second number is iteratred through once, and all the products are written out, we use binary addition to find the final number.
+
+For example, we take the last digit of the second number, 1, and multiply it by every digit in the first number, $(110 1011 1100)_2$. This gives us $11010111100$. We then take the second-last digit of the second number, 2, and multiply it by every digit in the first number again but adding an extra 0 at the end to shift it to the correct space resulting in: $110101111000$. After multiplying and shifting each product out, we perform binary addition to find the final number, which is $11 0010 0100 0101 0110 0100$.
+
+\pagebreak
+
+% --------------------------------------------------------------
+
+\begin{exercise}{4}
+Use the Principle of Mathematical Induction to show that $1 - 2+2^2 - 2^3 + ... + (-1)^n 2^n = \frac{2^{n+1} (-1)^n +1}{3}$ for all positive integers n.
+\end{exercise}
+
+\begin{proof}[Proof by Induction]
+\textbf{\\}
+
+Let P(n) be the proposition that $((-1)^n)(2^n) = \frac{2^{n+1} (-1)^n +1}{3}$ for all positive integers n. 
+
+\textbf{Basis Step: for P(1)} 
+\begin{align*}
+LHS &= \sum_{j=0}^{n}(-1)^n \times 2^n \\
+&= (-1)^0 \times 2^0 + (-1)^1 \times 2^1 \\
+&= 1 + (-2) \\
+&= -1 \\
+RHS &= \frac{2^{n+1}(-1)^n +1}{3} \\
+&= \frac{2^{1+1}(-1)^1 + 1}{3} \\
+&= \frac{-3}{3} \\
+&= -1 \\
+LHS &= RHS
+\end{align*}
+
+Therefore, the basis step P(1) is true. We must prove that P(k+1) is true using the inductive hypothesis that $(-1)^k 2^k = \frac{2^{k+1} (-1)^k +1}{3}$. 
+\\
+\textbf{Inductive Step}
+
+$$P(k) = 1 - 2 + 2^2 - 2^3 + ... + ((-1)^k 2^k) \\$$
+$$P(k+1) = 1 - 2 + 2^2 - 2^3 + ... + ((-1)^k 2^k) + ((-1)^{k+1} 2^{k+1}) \\$$
+Using the inductive hypothesis, $(-1)^k 2^k = \frac{2^{k+1}(-1)^k+1}{3}$, we can rewrite the equation.
+\\
+\begin{align*}
+P(k+1) &= \frac{2^{k+1}(-1)^k +1}{3} + (-1)^{k+1}2^{k+1} \\
+&= 2^{k+1}(-1)^k + 1 + 3((-1)^{k+1}2^{k+1}) \\
+&= 2^{k+1}(-1)^k + 3(2^{k+1}(-1)^{k+1}) + 1 \\
+&= \frac{2^{k+1}(-1)^k + 1}{3} \\
+\end{align*}
+
+With the assumption that the inductive hypothesis, P(k) is true, P(k+1) is proven to be true since we returned to the right side of the inductive hypothesis. Thus, since the basis step P(1) is true, the inductive hypothesis P(k) is true since it can be written as $P(k) = P(1+1)$, which will hold true. Thus, for every value k in P(k), P(k+1) is also true.
+\end{proof}
+
+% --------------------------------------------------------------
+\begin{exercise}{5}
+Use Strong Induction to prove that any (integer) amount of postage from 18 cents on up can be made from a combination of 4-cent and 7-cent stamps.
+\end{exercise}
+
+Let P(n) be the proposition that n can be made as a combination of 4 and 7 for all $n \geq 18$ where n is an integer.
+
+We must first prove if P(18), P(19), P(20), P(21) can be written as a combination of 4 and 7. \\
+\textbf{Basis Step:}
+\begin{align*}
+P(18) &= (7 \times 2) + 4\\
+P(19) &= 7 + (4 \times 3) \\
+P(20) &= 4 \times 5 \\
+P(21) &= 7 \times 3 \\
+\end{align*}
+Therefore, the basis step for P(18), P(19), P(20), P(21) is true.
+
+\textbf{Inductive Step:\\}
+The inductive hypothesis states that P(j) holds for $18 \leq j \leq k$, where $k \geq 21$. Thus, using this inductive hypothesis, $P(k)$ is true. If we assume the inductive hypothesis, we can prove that $P(k+1)$ holds for all integers values.
+
+In order to prove that $P(k+1)$ is possible, we can use our basis step and inductive hypothesis to prove that $P(k+1)$ is true for all P(k) where $k \geq 21$. Since P(k-3) is true and $k-3 < 21$, as proven in the basis step, we can form postage for $k+4$, since $k+4 = P(k-3) + 7$. Thus, since $P(k-3)$ is true, $P(k+4)$ is also true and by strong induction, P(k) is true for all $k \geq 21$.
+
+Therefore, P(n) holds for all $n \geq 18$.
+
+
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}
