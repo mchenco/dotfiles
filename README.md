@@ -22,6 +22,7 @@ whew whew new computer OK computer whew
   - Material Theme 
   - Markdown TOC -- (header config: `<!-- MarkdownTOC autolink="true" bracket="round" depth="0"-->`)
   - Markdown Preview
+  - WordCount
 
 2. Eclipse IDE for school
  - theme in dotfiles repo
@@ -33,16 +34,12 @@ whew whew new computer OK computer whew
 1. install git
  - should be installed after XCode installation
  - else{https://www.git-scm.com/download/mac}
-
-2. install homebrew
-
-3. install cask: `brew install brew-cask`
-
-4. install latex `brew cask install mactex`
-
-5. install pip `sudo easy_install pip`
-
-6. install virtualenv `sudo pip install virtualenv`
+-homebrew
+ -cask: `brew install brew-cask`
+-latex `brew cask install mactex`
+- pip `sudo easy_install pip`
+- virtualenv `sudo pip install virtualenv`
+- gdb `brew install gdb`
 
 ###Shortcuts
-- sublime command line: 
+- sublime command line: `ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime`
