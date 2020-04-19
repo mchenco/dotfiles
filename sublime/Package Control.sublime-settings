@@ -1,0 +1,27 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"ARM Assembly",
+		"Babel",
+		"Cucumber",
+		"Elixir",
+		"Gherkin (Cucumber) Formatter",
+		"GitGutter",
+		"LaTeX Word Count",
+		"LaTeXTools",
+		"Markdown Extended",
+		"MarkdownTOC",
+		"Material Theme",
+		"Package Control",
+		"R-Box",
+		"Ruby Debugger",
+		"Sass",
+		"SendCode",
+		"SublimeREPL",
+		"WordCount"
+	]
+}
